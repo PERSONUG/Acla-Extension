@@ -1,6 +1,7 @@
 class AclaExtension {
   constructor() {
-    this.apiUrl = "https://helloperson1231-acla-2-sep.repl.co/api/ask"; // your backend endpoint
+    // Correct Replit URL format
+    this.apiUrl = "https://acla-2-sep.helloperson1231.repl.co/api/ask"; 
   }
 
   getInfo() {
