@@ -1,6 +1,6 @@
 class AclaExtension {
     constructor() {
-        // Correct Replit backend URL
+        // Your backend URL
         this.apiUrl = "https://acla-2-sep.helloperson1231.repl.co/api/ask";
     }
 
@@ -8,18 +8,13 @@ class AclaExtension {
         try {
             const response = await fetch(this.apiUrl, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ prompt }),
             });
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             const data = await response.json();
-            return data.reply; // assumes backend returns { reply: "..." }
+            return data.reply;
         } catch (err) {
             console.error("Error reaching Acla:", err);
             return "Error: could not reach Acla";
@@ -27,5 +22,5 @@ class AclaExtension {
     }
 }
 
-// For TurboWarp
+// Make it global for TurboWarp
 window.AclaExtension = new AclaExtension();
